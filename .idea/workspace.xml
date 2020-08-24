@@ -29,6 +29,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gXXbLmKkSVt3tQAlBEaRaSAa8q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -58,6 +59,7 @@
       <updated>1598261981591</updated>
       <workItem from="1598261982610" duration="3761000" />
       <workItem from="1598276127712" duration="251000" />
+      <workItem from="1598276382458" duration="742000" />
     </task>
     <servers />
   </component>
@@ -88,10 +90,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2625" y="347" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598264501349" />
-    <state x="2657" y="252" key="FileChooserDialogImpl" timestamp="1598276379307">
+    <state x="2657" y="252" key="FileChooserDialogImpl" timestamp="1598277128016">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2657" y="252" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598276379307" />
+    <state x="2657" y="252" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598277128016" />
     <state x="2378" y="156" key="SettingsEditor" timestamp="1598266942924">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
