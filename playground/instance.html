@@ -12,7 +12,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        const vm = new Vue({
+        var vm = new Vue({
             el: '#app',
             data: {
                 msg : 'hi',
@@ -28,7 +28,7 @@
             this.name = name;
             this.job = job;
         }
-        const hong = new Person('sam', 'developer')
+        var hong = new Person('sam', 'developer')
         console.log(hong) // Person { name = "sam", job = "developer }
 
         // ex2

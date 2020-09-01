@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="45c6261d-9fd7-4bc4-ab5a-de4391f8c12c" name="Default Changelist" comment="" />
+    <list default="true" id="c4c2789c-6c2b-4812-91ec-47654ad060fa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/playground/props.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/instance.html" beforeDir="false" afterPath="$PROJECT_DIR$/playground/instance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/vue-way.html" beforeDir="false" afterPath="$PROJECT_DIR$/playground/vue-way.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/web-dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/playground/web-dev.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,8 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1gXXbLmKkSVt3tQAlBEaRaSAa8q" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1gqvLqTsnvVzc8AVOnGXzxHhPgi" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,66 +25,23 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\j\Desktop\vue study" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\j\Desktop\vue study\playground" />
-    </key>
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="45c6261d-9fd7-4bc4-ab5a-de4391f8c12c" name="Default Changelist" comment="" />
-      <created>1598261981591</created>
+      <changelist id="c4c2789c-6c2b-4812-91ec-47654ad060fa" name="Default Changelist" comment="" />
+      <created>1598854883173</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1598261981591</updated>
-      <workItem from="1598261982610" duration="3761000" />
-      <workItem from="1598276127712" duration="251000" />
-      <workItem from="1598276382458" duration="742000" />
+      <updated>1598854883173</updated>
+      <workItem from="1598854884214" duration="2515000" />
+      <workItem from="1598917551482" duration="2159000" />
     </task>
     <servers />
   </component>
-  <component name="TerminalProjectNonSharedOptionsProvider">
-    <option name="shellPath" value="C:\Program Files\Git\bin\sh.exe" />
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="2625" y="312" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598266363551">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2625" y="312" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598266363551" />
-    <state x="2625" y="347" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1598264501349">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2625" y="347" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598264501349" />
-    <state x="2657" y="252" key="FileChooserDialogImpl" timestamp="1598277128016">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2657" y="252" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598277128016" />
-    <state x="2378" y="156" key="SettingsEditor" timestamp="1598266942924">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2378" y="156" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1598266942924" />
   </component>
 </project>
