@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <p>{{num}}</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+            },
+            // 단순한 텍스트를 입력을 받아서 벨리데이션 값을 계산하는 것들 computed 사용
+            // 컴퓨티드는 인자를 받을 수 없다.
+            computed: {
+                doubleNum : function() {
+                    return this.num * 2;
+                },
+            },
+            // 상대적으로 무거운 동작들 ,, 데이터요청 등 동작에 적합하다.
+            watch: {
+                num: function(newValue, oldValue) { // 갱신된 값, 이전 값을 기본인자로 받을 수 있음
+                    this.fetchUserByNumber(newValue, oldValue);
+                },
+            },
+            methods: {
+                fetchUserByNumber: function (newNum, oldNum) {
+                    console.log(`현재 값 ${newNum}, 예전 값 ${oldNum}`);
+                    // example
+                    //axios.get(newNum)
+                }
+            },
+        });
+    </script>
+</body>
+</html>

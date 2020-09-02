@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
+        <p>{{ doubleNum }}</p>
+        <div v-if="loading">
+            Loading...
+        </div>
+        <div v-else>
+            test user gas been logged in
+        </div>
+        <!--   if는 DOM자체를 지우고 v-show는 display:none; 처리됨   -->
+        <div v-show="loading">
+            Loading...
+        </div>
+
+        <input type="text" v-model="message">
+        <p>{{message}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+                // doubleNum: 10 * 2,
+
+                uuid: 'abc1234',
+                name: 'text-blue',
+
+                loading: true,
+                message: '',
+            },
+            // 데이터에 값에 따라서 바뀌는 값을 사용할 때
+            computed: {
+                doubleNum : function() {
+                    return this.num * 2;
+                },
+            }
+        })
+    </script>
+</body>
+</html>
