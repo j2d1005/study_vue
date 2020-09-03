@@ -20,13 +20,7 @@ export default {
     props: ['todoItems'],
     methods: {
         removeTodo: function(todoItem, index) {
-            console.log(todoItem, index);
-            // localStorage.removeItem(Key이름);
-            localStorage.removeItem(todoItem);
-            // localStorage에서 지우고 data.todoItem에도 지워줘야 함.
-            this.todoItems.splice(index, 1);
-            // splice 값을 지우고 새로운 배열을 반환
-            // slice 배열자체에서 값만 지움
+            this.$emit('removeItem', todoItem, index);
         },
         toggleComplete: function(todoItem) {
             todoItem.completed = !todoItem.completed;

@@ -2,7 +2,7 @@
     <div>
         <TodoHeader />
         <TodoInput v-on:addTodoItem="addOneItem" />
-        <TodoList v-bind:todoItems="todoItems" />
+        <TodoList v-bind:todoItems="todoItems" v-on:removeItem="removeOneItem"/>
         <TodoFooter />
     </div>
 </template>
@@ -31,6 +31,15 @@ export default {
             // JSON.stringify 는 자바스크립트객체를 string으로 변환
             localStorage.setItem(todoItem, JSON.stringify(obj));
             this.todoItems.push(obj);
+        },
+        removeOneItem: function(todoItem, index) {
+            // localStorage.removeItem(Key이름);
+            // 여기서 key랑 id를 같은 값으로 해놔서 이렇게 해도 되는 것..
+            localStorage.removeItem(todoItem.item);
+            // localStorage에서 지우고 data.todoItem에도 지워줘야 함.
+            this.todoItems.splice(index, 1);
+            // splice 값을 지우고 새로운 배열을 반환
+            // slice 배열자체에서 값만 지움
         }
     },
     created: function() {
