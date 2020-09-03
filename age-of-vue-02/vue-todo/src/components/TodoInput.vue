@@ -18,7 +18,8 @@ export default {
     methods: {
         addTodo: function() {
             console.log(this.newTodoItem);
-            //저장하는 로직
+            //localStorage 저장하는 로직
+            // localStorage.setItem(Key, Value);
             localStorage.setItem(this.newTodoItem, this.newTodoItem);
             this.clearInput();
         },

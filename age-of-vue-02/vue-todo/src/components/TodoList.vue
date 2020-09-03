@@ -1,9 +1,9 @@
 <template>
     <div>
         <ul>
-            <li v-for="todoItems in todoItems" v-bind:key="todoItems" class="shadow">
-                {{todoItems}}
-                <span class="removeBtn" v-on:click="removeTodo">
+            <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem" class="shadow">
+                {{todoItem}}
+                <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
                     <i class="fas fa-trash-alt"></i>
                 </span>
             </li>
@@ -20,8 +20,14 @@ export default {
         }
     },
     methods: {
-        removeTodo: function() {
-
+        removeTodo: function(todoItem, index) {
+            console.log(todoItem, index);
+            // localStorage.removeItem(Key이름);
+            localStorage.removeItem(todoItem);
+            // localStorage에서 지우고 data.todoItem에도 지워줘야 함.
+            this.todoItems.splice(index, 1);
+            // splice 값을 지우고 새로운 배열을 반환
+            // slice 배열자체에서 값만 지움
         }
     },
     created: function() {
