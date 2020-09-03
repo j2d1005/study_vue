@@ -2,8 +2,8 @@
     <div>
         <TodoHeader />
         <TodoInput v-on:addTodoItem="addOneItem" />
-        <TodoList v-bind:todoItems="todoItems" v-on:removeItem="removeOneItem"/>
-        <TodoFooter />
+        <TodoList v-bind:todoItems="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"/>
+        <TodoFooter v-on:clearAll="clearAllItem" />
     </div>
 </template>
 
@@ -38,8 +38,20 @@ export default {
             localStorage.removeItem(todoItem.item);
             // localStorage에서 지우고 data.todoItem에도 지워줘야 함.
             this.todoItems.splice(index, 1);
-            // splice 값을 지우고 새로운 배열을 반환
-            // slice 배열자체에서 값만 지움
+        },
+        toggleOneItem: function(todoItem, index) {
+            // todoItem.completed = !todoItem.completed;
+            // 내린 데이터를 다시 올려받아서 수정하는 건 별로 좋지 못함. 아래처럼 작성하기
+            this.todoItems[index].completed = !this.todoItems[index].completed
+
+
+            //localstorage는 업데이트 기능이 없어서 지운 뒤 다시 올려야함
+            localStorage.removeItem(todoItem.item);
+            localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+        },
+        clearAllItem: function() {
+            localStorage.clear();
+            this.todoItems = [];
         }
     },
     created: function() {

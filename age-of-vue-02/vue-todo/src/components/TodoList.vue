@@ -22,11 +22,8 @@ export default {
         removeTodo: function(todoItem, index) {
             this.$emit('removeItem', todoItem, index);
         },
-        toggleComplete: function(todoItem) {
-            todoItem.completed = !todoItem.completed;
-            //localstorage는 업데이트 기능이 없어서 지운 뒤 다시 올려야함
-            localStorage.removeItem(todoItem.item);
-            localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+        toggleComplete: function(todoItem, index) {
+            this.$emit('toggleItem', todoItem, index)
         }
     }
 }
