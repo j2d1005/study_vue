@@ -22,6 +22,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-
 .idea
+
+# 01 강좌
+/age-of-vue-01/vue-cli/node_modules
+/age-of-vue-01/vue-form/node_modules
