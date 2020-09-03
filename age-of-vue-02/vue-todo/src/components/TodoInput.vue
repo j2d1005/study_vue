@@ -24,14 +24,14 @@ import Modal from './common/Modal';
 
 export default {
     name: "TodoInput",
-    data: function() {
+    data() {
         return {
             newTodoItem: '',
             showModal: false
         }
     },
     methods: {
-        addTodo: function() {
+        addTodo() {
             // newTodoItem에 값이 있을 때만 실행
             if(this.newTodoItem !== '') {
                 // this.$emit('이벤트 이름', 인자1, 인자2, ...);
@@ -41,13 +41,14 @@ export default {
                 this.showModal = true;
             }
         },
-        clearInput: function() {
+        clearInput() {
             //인풋 초기화 로직
             this.newTodoItem = '';
         }
     },
     components: {
-        Modal : Modal
+        // Modal : Modal
+        Modal
     }
 }
 </script>

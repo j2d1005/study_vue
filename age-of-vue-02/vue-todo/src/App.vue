@@ -14,15 +14,15 @@ import TodoList from "./components/TodoList";
 import TodoFooter from "./components/TodoFooter";
 
 export default {
-    data: function() {
+    data() {
         return {
             todoItems: []
         }
     },
     methods: {
-        addOneItem: function(todoItem) {
+        addOneItem(todoItem) {
             // 체크되었는지와 내용을 obj에 저장
-            var obj = {
+            const obj = {
                 completed: false,
                 item: todoItem
             }
@@ -32,14 +32,14 @@ export default {
             localStorage.setItem(todoItem, JSON.stringify(obj));
             this.todoItems.push(obj);
         },
-        removeOneItem: function(todoItem, index) {
+        removeOneItem(todoItem, index) {
             // localStorage.removeItem(Key이름);
             // 여기서 key랑 id를 같은 값으로 해놔서 이렇게 해도 되는 것..
             localStorage.removeItem(todoItem.item);
             // localStorage에서 지우고 data.todoItem에도 지워줘야 함.
             this.todoItems.splice(index, 1);
         },
-        toggleOneItem: function(todoItem, index) {
+        toggleOneItem(todoItem, index) {
             // todoItem.completed = !todoItem.completed;
             // 내린 데이터를 다시 올려받아서 수정하는 건 별로 좋지 못함. 아래처럼 작성하기
             this.todoItems[index].completed = !this.todoItems[index].completed
@@ -49,15 +49,15 @@ export default {
             localStorage.removeItem(todoItem.item);
             localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
         },
-        clearAllItem: function() {
+        clearAllItem() {
             localStorage.clear();
             this.todoItems = [];
         }
     },
-    created: function() {
+    created() {
         //vue 인스턴스 생성되자마자 실행
         if (localStorage.length > 0){
-            for (var i = 0; i < localStorage.length; i++) {
+            for (let i = 0; i < localStorage.length; i++) {
                 // 자동으로 localStorage에 저장되어있는 부분 제외
                 if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
                     //JSON.parse - JSON.stringify로 문자열로 바꾼 객체를 다시 객체형식으로 바꿔줌
@@ -68,10 +68,15 @@ export default {
         }
     },
     components: {
-        "TodoHeader": TodoHeader,
-        "TodoInput": TodoInput,
-        "TodoList": TodoList,
-        "TodoFooter": TodoFooter,
+        // "TodoHeader": TodoHeader,
+        // "TodoInput": TodoInput,
+        // "TodoList": TodoList,
+        // "TodoFooter": TodoFooter,
+        //객체의 속성명과 값이 같으면 생략가능
+        TodoHeader,
+        TodoInput,
+        TodoList,
+        TodoFooter,
     }
 }
 </script>
