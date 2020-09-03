@@ -19,15 +19,8 @@ export default {
         addTodo: function() {
             // newTodoItem에 값이 있을 때만 실행
             if(this.newTodoItem !== '') {
-                // 체크되었는지와 내용을 obj에 저장
-                var obj = {
-                    completed: false,
-                    item: this.newTodoItem
-                }
-                //localStorage 저장하는 로직
-                // localStorage.setItem(Key, Value);
-                // JSON.stringify 는 자바스크립트객체를 string으로 변환
-                localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+                // this.$emit('이벤트 이름', 인자1, 인자2, ...);
+                this.$emit('addTodoItem', this.newTodoItem);
                 this.clearInput();
             }
         },

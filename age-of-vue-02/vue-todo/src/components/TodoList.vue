@@ -17,11 +17,7 @@
 <script>
 export default {
     name: "TodoList",
-    data: function() {
-        return {
-            todoItems: []
-        }
-    },
+    props: ['todoItems'],
     methods: {
         removeTodo: function(todoItem, index) {
             console.log(todoItem, index);
@@ -37,19 +33,6 @@ export default {
             //localstorage는 업데이트 기능이 없어서 지운 뒤 다시 올려야함
             localStorage.removeItem(todoItem.item);
             localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
-        }
-    },
-    created: function() {
-    //vue 인스턴스 생성되자마자 실행
-        if (localStorage.length > 0){
-            for (var i = 0; i < localStorage.length; i++) {
-                // 자동으로 localStorage에 저장되어있는 부분 제외
-                if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-                    //JSON.parse - JSON.stringify로 문자열로 바꾼 객체를 다시 객체형식으로 바꿔줌
-                    // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                }
-            }
         }
     }
 }

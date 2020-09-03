@@ -1,8 +1,8 @@
 <template>
     <div>
         <TodoHeader />
-        <TodoInput />
-        <TodoList />
+        <TodoInput v-on:addTodoItem="addOneItem" />
+        <TodoList v-bind:todoItems="todoItems" />
         <TodoFooter />
     </div>
 </template>
@@ -14,6 +14,38 @@ import TodoList from "./components/TodoList";
 import TodoFooter from "./components/TodoFooter";
 
 export default {
+    data: function() {
+        return {
+            todoItems: []
+        }
+    },
+    methods: {
+        addOneItem: function(todoItem) {
+            // 체크되었는지와 내용을 obj에 저장
+            var obj = {
+                completed: false,
+                item: todoItem
+            }
+            //localStorage 저장하는 로직
+            // localStorage.setItem(Key, Value);
+            // JSON.stringify 는 자바스크립트객체를 string으로 변환
+            localStorage.setItem(todoItem, JSON.stringify(obj));
+            this.todoItems.push(obj);
+        }
+    },
+    created: function() {
+        //vue 인스턴스 생성되자마자 실행
+        if (localStorage.length > 0){
+            for (var i = 0; i < localStorage.length; i++) {
+                // 자동으로 localStorage에 저장되어있는 부분 제외
+                if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+                    //JSON.parse - JSON.stringify로 문자열로 바꾼 객체를 다시 객체형식으로 바꿔줌
+                    // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
+                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+                }
+            }
+        }
+    },
     components: {
         "TodoHeader": TodoHeader,
         "TodoInput": TodoInput,
