@@ -17,11 +17,19 @@ export default {
     },
     methods: {
         addTodo: function() {
-            console.log(this.newTodoItem);
-            //localStorage 저장하는 로직
-            // localStorage.setItem(Key, Value);
-            localStorage.setItem(this.newTodoItem, this.newTodoItem);
-            this.clearInput();
+            // newTodoItem에 값이 있을 때만 실행
+            if(this.newTodoItem !== '') {
+                // 체크되었는지와 내용을 obj에 저장
+                var obj = {
+                    completed: false,
+                    item: this.newTodoItem
+                }
+                //localStorage 저장하는 로직
+                // localStorage.setItem(Key, Value);
+                // JSON.stringify 는 자바스크립트객체를 string으로 변환
+                localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+                this.clearInput();
+            }
         },
         clearInput: function() {
             //인풋 초기화 로직
