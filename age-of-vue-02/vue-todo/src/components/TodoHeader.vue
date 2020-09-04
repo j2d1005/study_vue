@@ -1,12 +1,16 @@
 <template>
     <div>
-        <h1>{{ this.$store.state.headerText }}</h1>
+        <h1>{{ this.headerText }}</h1>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-    name: "TodoHeader"
+    name: "TodoHeader",
+    computed: {
+        ...mapState(['headerText'])
+    }
 }
 </script>
 

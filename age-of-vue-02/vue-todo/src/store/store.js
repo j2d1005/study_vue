@@ -26,6 +26,11 @@ export const store = new Vuex.Store({
         headerText: 'TODO IT!',
         todoItems: storage.fetch()
     },
+    getters: {
+        storedTodoItems(state) {
+            return state.todoItems;
+        }
+    },
     mutations: {
         addOnItem(state, todoItem) {
             // 체크되었는지와 내용을 obj에 저장
