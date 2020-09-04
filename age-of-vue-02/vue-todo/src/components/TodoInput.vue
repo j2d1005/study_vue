@@ -21,6 +21,7 @@
 
 <script>
 import Modal from './common/Modal';
+import { mapMutations } from "vuex";
 
 export default {
     name: "TodoInput",
@@ -31,6 +32,7 @@ export default {
         }
     },
     methods: {
+        ...mapMutations(['addOneItem']),
         addTodo() {
             // newTodoItem에 값이 있을 때만 실행
             if(this.newTodoItem !== '') {
@@ -41,7 +43,8 @@ export default {
                 const text = this.newTodoItem.trim();
                 // 변수에 담아서 전송 .. trim()은 텍스트 앞뒤에 공백을 없애줌
 
-                this.$store.commit('addOnItem', text);
+                // this.$store.commit('addOneItem', text);
+                this.addOneItem(text);
                 this.clearInput();
             }else{
                 this.showModal = true;

@@ -3,10 +3,10 @@
         <transition-group name="list" tag="ul">
             <li v-for="(todoItem, index) in this.storedTodoItems" v-bind:key="todoItem.item" class="shadow">
                 <span class="checkBtn">
-                    <i class="fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(todoItem, index)"></i>
+                    <i class="fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete({todoItem, index})"></i>
                 </span>
                 <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
-                <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
+                <span class="removeBtn" v-on:click="removeTodo({todoItem, index})">
                     <i class="fas fa-trash-alt"></i>
                 </span>
             </li>
@@ -15,22 +15,31 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
     name: "TodoList",
     methods: {
-        removeTodo(todoItem, index) {
-            // this.$emit('removeItem', todoItem, index);
-            // vuex 사용 후---------------
-            // $emit 사용할떄는 인자를 여러개 보낼 수 있지만 mutations commit 할때는 객체로 묶어서 보냄
-            this.$store.commit('removeOneItem', {todoItem, index});
-        },
-        toggleComplete(todoItem, index) {
-            // this.$emit('toggleItem', todoItem, index)
-            // vuex 사용 후---------------
-            this.$store.commit('toggleOneItem', {todoItem, index});
-        }
+        // removeTodo(todoItem, index) {
+        //     // this.$emit('removeItem', todoItem, index);
+        //     // vuex 사용 후---------------
+        //     // $emit 사용할떄는 인자를 여러개 보낼 수 있지만 mutations commit 할때는 객체로 묶어서 보냄
+        //     this.$store.commit('removeOneItem', {todoItem, index});
+        // },
+        // toggleComplete(todoItem, index) {
+        //     // this.$emit('toggleItem', todoItem, index)
+        //     // vuex 사용 후---------------
+        //     this.$store.commit('toggleOneItem', {todoItem, index});
+        // }
+
+        // mapMutations 사용
+        ...mapMutations({
+            removeTodo: 'removeOneItem',
+            toggleComplete: 'toggleOneItem'
+        }),
+        // removeTodo 에 store-mutatines 의 removeOneItem을 매칭
+        // 기존에는 {todoItem, index}을 넘겼지만 map 뷰 속성을 사용하면 인자를 안넘겨줘도 유연하게 적용됨
+        // 기존에 객체로 묶어서 2개의 인자를 보내줬으니 6,9라인에 선언할 떄도 인자를 객체로 묶어줘야 함
     },
     computed: {
         //store의 getters를 computed에 맵핑

@@ -32,7 +32,7 @@ export const store = new Vuex.Store({
         }
     },
     mutations: {
-        addOnItem(state, todoItem) {
+        addOneItem(state, todoItem) {
             // 체크되었는지와 내용을 obj에 저장
             const obj = {
                 completed: false,

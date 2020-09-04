@@ -1,18 +1,25 @@
 <template>
     <div class="clearAllContainer">
-        <span class="clearAllBtn" v-on:click="clearTodo">Clear All</span>
+        <span class="clearAllBtn" v-on:click="this.clearAllItem">Clear All</span>
     </div>
 </template>
 
 <script>
+import { mapMutations } from  'vuex';
+
 export default {
     name: "TodoFooter",
     methods: {
-        clearTodo() {
-            // this.$emit('clearAll');
-            // vuex 사용 후---------------
-            this.$store.commit('clearAllItem');
-        }
+        // clearTodo() {
+        //     // this.$emit('clearAll');
+        //     // vuex 사용 후---------------
+        //     this.$store.commit('clearAllItem');
+        // }
+        ...mapMutations(["clearAllItem"])
+        // 또는
+        // ...mapMutations({
+        //      clearTodo: 'clearAllItem'
+        // })
     }
 }
 </script>
