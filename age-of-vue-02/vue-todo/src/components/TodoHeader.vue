@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>TODO IT!</h1>
+        <h1>{{ this.$store.state.headerText }}</h1>
     </div>
 </template>
 
