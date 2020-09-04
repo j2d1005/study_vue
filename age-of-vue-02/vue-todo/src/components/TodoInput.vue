@@ -35,7 +35,13 @@ export default {
             // newTodoItem에 값이 있을 때만 실행
             if(this.newTodoItem !== '') {
                 // this.$emit('이벤트 이름', 인자1, 인자2, ...);
-                this.$emit('addTodoItem', this.newTodoItem);
+                // this.$emit('addTodoItem', this.newTodoItem);
+
+                // vuex 사용 후---------------
+                const text = this.newTodoItem.trim();
+                // 변수에 담아서 전송 .. trim()은 텍스트 앞뒤에 공백을 없애줌
+
+                this.$store.commit('addOnItem', text);
                 this.clearInput();
             }else{
                 this.showModal = true;

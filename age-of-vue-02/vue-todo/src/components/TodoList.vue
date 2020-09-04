@@ -1,11 +1,11 @@
 <template>
     <div>
         <transition-group name="list" tag="ul">
-            <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem.item" class="shadow">
+            <li v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="todoItem.item" class="shadow">
                 <span class="checkBtn">
                     <i class="fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(todoItem, index)"></i>
                 </span>
-                <span v-bind:class="{textCompletd: todoItem.completed}">{{todoItem.item}}</span>
+                <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
                 <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
                     <i class="fas fa-trash-alt"></i>
                 </span>
@@ -17,13 +17,17 @@
 <script>
 export default {
     name: "TodoList",
-    props: ['todoItems'],
     methods: {
         removeTodo(todoItem, index) {
-            this.$emit('removeItem', todoItem, index);
+            // this.$emit('removeItem', todoItem, index);
+            // vuex 사용 후---------------
+            // $emit 사용할떄는 인자를 여러개 보낼 수 있지만 mutations commit 할때는 객체로 묶어서 보냄
+            this.$store.commit('removeOneItem', {todoItem, index});
         },
         toggleComplete(todoItem, index) {
-            this.$emit('toggleItem', todoItem, index)
+            // this.$emit('toggleItem', todoItem, index)
+            // vuex 사용 후---------------
+            this.$store.commit('toggleOneItem', {todoItem, index});
         }
     }
 }
@@ -58,7 +62,7 @@ export default {
     .checkBtnCompleted {
         color: #b3adad;
     }
-    .textCompletd {
+    .textCompleted {
         text-decoration: line-through;
         color: #b3adad;
     }

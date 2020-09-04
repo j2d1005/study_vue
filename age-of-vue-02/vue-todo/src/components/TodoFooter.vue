@@ -9,7 +9,9 @@ export default {
     name: "TodoFooter",
     methods: {
         clearTodo() {
-            this.$emit('clearAll');
+            // this.$emit('clearAll');
+            // vuex 사용 후---------------
+            this.$store.commit('clearAllItem');
         }
     }
 }
