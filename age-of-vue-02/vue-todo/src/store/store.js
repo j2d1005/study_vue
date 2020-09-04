@@ -1,36 +1,19 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import * as getters from './getters'
-import * as mutations from './mutations'
+
+import todoApp from "./modules/todoApp";
 
 Vue.use(Vuex);
 
-const storage = {
-    fetch() {
-        //vue 인스턴스 생성되자마자 실행
-        const arr = [];
-        if (localStorage.length > 0){
-            for (let i = 0; i < localStorage.length; i++) {
-                // 자동으로 localStorage에 저장되어있는 부분 제외
-                if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-                    //JSON.parse - JSON.stringify로 문자열로 바꾼 객체를 다시 객체형식으로 바꿔줌
-                    // console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                    arr.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                }
-            }
-        }
-        return arr;
-    }
-};
-
 export const store = new Vuex.Store({
-    state: {
-        headerText: 'TODO IT!',
-        todoItems: storage.fetch()
-    },
-    getters: getters,
-    mutations: mutations
+    modules: {
+        todoApp
+    }
 });
+
+
+
+
 
 
 // vuex 요소
