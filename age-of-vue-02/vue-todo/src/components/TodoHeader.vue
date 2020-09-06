@@ -22,6 +22,11 @@ export default {
     //         bookList: state => state.A.B.C.Book.list
     //     })
     // },
+    // computed: {
+    //     ... mapState('A/B/C/Book', {
+    //         bookList: state => state.list
+    //     })
+    // },
     // methods: {
     //     ...mapActions([
     //         'A/B/C/Book/setList'
