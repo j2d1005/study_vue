@@ -5,25 +5,14 @@
 </template>
 
 <script>
-import { fetchJobsList } from "../api";
+import { mapGetters } from 'vuex';
 
 export default {
-    data() {
-        return {
-            jobs: []
-        }
+    computed: {
+        ...mapGetters(['jobs'])
     },
     created() {
-        const vm = this;
-        fetchJobsList()
-            .then(response => {
-                console.log(response);
-                vm.jobs = response.data;
-
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        this.$store.dispatch('FETCH_JOBS');
     }
 }
 </script>
