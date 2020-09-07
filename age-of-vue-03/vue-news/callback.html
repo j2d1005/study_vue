@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>jquery ajax</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        function fetchData() {
+            //1
+            var result = [];
+
+            //2
+            $.ajax({
+                url: 'https://api.hnpwa.com/v0/news/1.json',
+                success: function(data) {
+                    console.log('데이터 호출 결과', data);
+                    result = data;
+
+                    // console.log('함수 결과', result); // callback
+                }
+            });
+
+            //3
+            console.log('함수 결과', result);
+
+            // 3번이 먼저 출력되고 2번이 출력됨 자바스크립트 비동기 호출의 특징
+        }
+        fetchData();
+    </script>
+</body>
+</html>
