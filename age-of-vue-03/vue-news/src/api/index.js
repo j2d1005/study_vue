@@ -18,6 +18,9 @@ function fetchAskList() {
 function fetchUserInfo(name) {
     return axios.get(`https://hacker-news.firebaseio.com/v0/user/${name}.json`)
 }
+function fetchItem(postNum) {
+    return axios.get(`https://hacker-news.firebaseio.com/v0/item/${postNum}.json?print=pretty`)
+}
 
 // function fetchList(category, page) {
 //     return axios.get(`${config.baseUrl}/${category}/${page}.json`)
@@ -27,5 +30,6 @@ export {
     fetchNewsList,
     fetchJobsList,
     fetchAskList,
-    fetchUserInfo
+    fetchUserInfo,
+    fetchItem
 }
