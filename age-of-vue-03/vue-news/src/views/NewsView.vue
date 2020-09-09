@@ -2,13 +2,16 @@
     <div>
         <p v-for="item in news" :key="item.id">
             <a v-bind:href="item.url">{{ item.title }}</a>
-            <small>{{ item.time }} by {{ item.user }}</small>
+            <small>
+                {{ item.time }} by
+                <router-link v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>
+            </small>
         </p>
     </div>
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
     data() {

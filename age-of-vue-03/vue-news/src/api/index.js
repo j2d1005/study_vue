@@ -15,6 +15,9 @@ function fetchJobsList() {
 function fetchAskList() {
     return axios.get(`${config.baseUrl}/ask/1.json`)
 }
+function fetchUserInfo(name) {
+    return axios.get(`https://hacker-news.firebaseio.com/v0/user/${name}.json`)
+}
 
 // function fetchList(category, page) {
 //     return axios.get(`${config.baseUrl}/${category}/${page}.json`)
@@ -23,5 +26,6 @@ function fetchAskList() {
 export {
     fetchNewsList,
     fetchJobsList,
-    fetchAskList
+    fetchAskList,
+    fetchUserInfo
 }
