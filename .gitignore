@@ -26,3 +26,6 @@ yarn-error.log*
 .idea
 
 **/node_modules
+
+# 강의 자료
+/age-of-vue-03 - 강의자료
