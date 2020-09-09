@@ -1,6 +1,9 @@
 <template>
     <div>
-        <div v-for="user in news" :key="user.id">{{user.title}}</div>
+        <p v-for="item in news" :key="item.id">
+            <a v-bind:href="item.url">{{ item.title }}</a>
+            <small>{{ item.time }} by {{ item.user }}</small>
+        </p>
     </div>
 </template>
 
@@ -17,7 +20,7 @@ export default {
         //#3
         ...mapGetters(['news'])
 
-        //#2   #1,#2번으로 하면 위에 선언할 때 this.news로 해야 됨
+        //#2
         // ...mapState({
         //     news: state => state.news
         // })
