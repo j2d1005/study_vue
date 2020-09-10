@@ -1,24 +1,28 @@
 <template>
-    <div>
-        <p>name: {{ user.id }}</p>
-        <p>karma: {{ user.karma }}</p>
-        <p>created: {{ user.created }}</p>
-    </div>
+    <UserProfile :info="user">
+        <div slot="username">{{ user.id }}</div>
+        <div slot="time" class="time">created: {{ user.created }}</div>
+        <div slot="type" class="karma">karma: {{ user.karma }}</div>
+    </UserProfile>
+<!--    <div>-->
+<!--        <p>name: {{ user.id }}</p>-->
+<!--        <p>karma: {{ user.karma }}</p>-->
+<!--        <p>created: {{ user.created }}</p>-->
+<!--    </div>-->
 </template>
 
 <script>
-// import axios from 'axios';
 import { mapGetters } from 'vuex';
+import UserProfile from "../components/UserProfile";
 export default {
+    components: {
+        UserProfile
+    },
     computed: {
         ...mapGetters(['user'])
     },
     created() {
-        // console.log(this.$route);
-
         const userName = this.$route.params.id;
-
-        // axios.get(`https://hacker-news.firebaseio.com/v0/user/${userName}.json?print=pretty`)
         this.$store.dispatch('FETCH_USER', userName);
     }
 }

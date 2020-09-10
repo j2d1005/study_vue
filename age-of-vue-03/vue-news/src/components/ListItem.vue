@@ -23,7 +23,7 @@
                         <router-link
                             v-if="item.user"
                             v-bind:to="`/user/${item.user}`" class="link_text">{{ item.user }}</router-link>
-                        <a v-else :href="item.domain">{{item.domain}}</a>
+                        <a v-else :href="item.url">{{item.domain}}</a>
                     </small>
                 </div>
             </li>

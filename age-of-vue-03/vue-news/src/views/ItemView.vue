@@ -1,19 +1,14 @@
 <template>
     <div>
         <section>
-            <div class="user-container">
-                <div>
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="user-desc">
-                    <router-link :to="`/user/${item.by}`">
-                        {{item.by}}
-                    </router-link>
-                    <div class="type">
-                        {{item.type}}
-                    </div>
-                </div>
-            </div>
+            <UserProfile :info="item">
+                <router-link slot="username" :to="`/user/${item.by}`">
+                    {{item.by}}
+                </router-link>
+                <div slot="time" class="type">{{ item.type }}</div>
+            </UserProfile>
+        </section>
+        <section>
             <h2>{{item.title}}</h2>
         </section>
         <section>
@@ -24,7 +19,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import UserProfile from '../components/UserProfile'
 export default {
+    components: {
+        UserProfile
+    },
     computed: {
         ...mapGetters(['item'])
     },
@@ -40,20 +39,5 @@ export default {
 <style scoped>
     section{
         padding: 0 0.7rem;
-    }
-    .user-container {
-        display: flex;
-        align-items: center;
-        padding: 0.7rem 0;
-    }
-    .fa-user {
-        font-size: 2.5rem;
-    }
-    .user-desc {
-        padding-left:10px;
-    }
-    .type {
-        padding-top: 3px;
-        font-size: 0.8rem;
     }
 </style>
