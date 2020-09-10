@@ -17,7 +17,7 @@
             <h2>{{item.title}}</h2>
         </section>
         <section>
-            <p>{{item.text}}</p>
+            <p v-html="item.text"></p>
         </section>
     </div>
 </template>
