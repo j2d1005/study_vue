@@ -49,14 +49,14 @@ export default {
         }
     },
     created() {
-        const page = this.$route.name;
-        if(page === 'news'){
-            this.$store.dispatch('FETCH_NEWS');
-        }else if( page ==='ask' ){
-            this.$store.dispatch('FETCH_ASK');
-        }else if( page ==='jobs' ){
-            this.$store.dispatch('FETCH_JOBS');
-        }
+        // const page = this.$route.name;
+        // if(page === 'news'){
+        //     this.$store.dispatch('FETCH_NEWS');
+        // }else if( page ==='ask' ){
+        //     this.$store.dispatch('FETCH_ASK');
+        // }else if( page ==='jobs' ){
+        //     this.$store.dispatch('FETCH_JOBS');
+        // }
     }
 }
 </script>
