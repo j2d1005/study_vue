@@ -4,23 +4,25 @@
 
 <script>
 import ListItem from '../components/ListItem'
-import Bus from '../utils/bus'
+// import Bus from '../utils/bus'
+import ListMixin from "../mixins/ListMixin";
 export default {
     components: {
         ListItem
     },
-    created() {
-        // 이벤트 버스는 라이프사이클 훅스 안에 선언
-        Bus.$emit('start:spinner');
-        setTimeout(() => {
-            this.$store.dispatch('FETCH_NEWS')
-                .then(() => {
-                    console.log('fetched');
-                    Bus.$emit('end:spinner');
-                })
-                .catch(error => console.log(error));
-        },1500)
-    },
+    mixins: [ ListMixin ],
+    // created() {
+    //     // 이벤트 버스는 라이프사이클 훅스 안에 선언
+    //     Bus.$emit('start:spinner');
+    //     setTimeout(() => {
+    //         this.$store.dispatch('FETCH_NEWS')
+    //             .then(() => {
+    //                 console.log('fetched');
+    //                 Bus.$emit('end:spinner');
+    //             })
+    //             .catch(error => console.log(error));
+    //     },1500)
+    // },
 }
 </script>
 

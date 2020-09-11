@@ -8,6 +8,8 @@ CreateListView(HOC) > ListView > ListItem 으로 구조가 변경됨 중간에 L
 //---궁금한 점
 왜 CreateListView에서 ListItem을 바로 render하지 않는걸까???????????
 테스트 해보니까 바로 렌더 해도 동작 잘 됨
+--------------
+NewsView, JobsView, AskView 각 컴포넌트에서 공통으로 사용하는 로직만 hoc로 빼고 나머지는 ListView로 남겨둔 듯.. (분리의 개념?)
 -->
 <template>
     <div>
