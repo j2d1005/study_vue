@@ -1,6 +1,11 @@
 import Vue from 'vue';
 
 export default new Vue();
+
+
+
+
+// export default new Vue();
 //이렇게 선언하면
 // import Bus from './bus';    아무 이름으로나 받을 수 있다
 // default가 있냐 없냐 차이

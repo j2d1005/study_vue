@@ -32,21 +32,25 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 export default {
     computed: {
-        // ...mapGetters(['news'])
-        listItem() {
-            const page = this.$route.name;
-            if(page === 'news'){
-                return this.$store.state.news;
-            }else if( page ==='ask' ){
-                return this.$store.state.ask;
-            }else if( page ==='jobs' ){
-                return this.$store.state.jobs;
-            }
+        ...mapGetters({
+            listItem : 'list'
+        }),
+        // 혹은 ...mapGetters(['list'])
 
-        }
+        // listItem() {
+        //     return this.$store.state.list; // 각 페이지 이름의 스테이트로 받던걸 list로 한번에 받고 그걸 위에서 mapGetters 사용해서 받음.
+        //     // const page = this.$route.name;
+        //     // if(page === 'news'){
+        //     //     return this.$store.state.news;
+        //     // }else if( page ==='ask' ){
+        //     //     return this.$store.state.ask;
+        //     // }else if( page ==='jobs' ){
+        //     //     return this.$store.state.jobs;
+        //     // }
+        // }
     },
     created() {
         // const page = this.$route.name;
