@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas id="barChart" width="400" height="400"></canvas>
+        <canvas ref="barChart" id="barChart" width="400" height="400"></canvas>
     </div>
 </template>
 
@@ -10,7 +10,8 @@ import Chart from "chart.js";
 export default {
     // mounted 안에 선언한 이유는 ctx = doucment. ~~~ 부분에 document로 선언해 놓은 부분때문이다. 돔이 만들어 진 후에 선언이 되어야 해서 그렇다
     mounted() {
-        var ctx = document.getElementById('barChart');
+        // var ctx = document.getElementById('barChart');
+        var ctx = this.$refs.barChart;
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
