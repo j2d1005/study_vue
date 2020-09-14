@@ -6,8 +6,9 @@ import NewsView from '../views/NewsView';
 import ItemView from '../views/ItemView';
 import UserView from '../views/UserView';
 import createListView from "../views/CreateListView";
+import AsyncTest from "@/views/AsyncTest";
 import bus from "../utils/bus";
-import { store } from "../store";
+import { store } from "@/store";
 
 
 Vue.use(VueRouter);
@@ -68,6 +69,10 @@ export const router = new VueRouter({
         {
             path: '/item/:postNum',
             component: ItemView,
+        },
+        {
+            path: '/async',
+            component: AsyncTest,
         }
     ]
 });

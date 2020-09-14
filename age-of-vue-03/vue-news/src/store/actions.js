@@ -30,25 +30,45 @@ export default {
     //         })
     //         .catch(error => console.log(error));
     // },
-    FETCH_LIST({ commit }, pageName) {
-       return fetchList(pageName)
-            .then(({ data }) => {
-                commit('SET_LIST', data);
-            })
-            .catch(error => console.log(error));
+
+    // promise Ver
+    // FETCH_LIST({ commit }, pageName) {
+    //    return fetchList(pageName)
+    //         .then(({ data }) => {
+    //             commit('SET_LIST', data);
+    //         })
+    //         .catch(error => console.log(error));
+    // },
+    // async Ver
+    // async FETCH_LIST(context, pagename) {
+    //     const response = await fetchList(pagename);
+    //     context.commit('SET_LIST', response.data);
+    //     return response;
+    //     // return을 안해주게 되면 화면에서 비동기 순서를 보장할 수 없다.
+    // },
+
+
+    // 일반적으로 try, catch는 비즈니스 로직을 많이 처리하는 actions보다 api쪽에서 많이 호출하는게 깔끔하다.
+    async FETCH_LIST({commit}, pagename) {
+        const response = await fetchList(pagename);
+        commit('SET_LIST', response.data);
+        return response;
+        // return을 안해주게 되면 화면에서 비동기 순서를 보장할 수 없다.
     },
-    FETCH_USER({ commit }, name) {
-        return  fetchUserInfo(name)
-            .then(({ data }) => {
-                commit('SET_USER', data);
-            })
-            .catch(error => console.log(error));
+    //
+    async FETCH_USER({ commit }, name) {
+        const response = await fetchUserInfo(name);
+        commit('SET_USER', response.data)
+        return response;
     },
-    FETCH_ITEM({commit}, postNum) {
-        return fetchItem(postNum)
-            .then(({ data }) => {
-                commit('SET_ITEM', data);
-            })
-            .catch(error => console.log(error));
+    async FETCH_ITEM({commit}, postNum) {
+        try {
+            const response = await fetchItem(postNum);
+            commit('SET_ITEM', response.data);
+            return response;
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
 }

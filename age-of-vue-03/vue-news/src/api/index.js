@@ -14,15 +14,28 @@ const config = {
 // }
 // function fetchAskList() {
 //     return axios.get(`${config.baseUrl}/ask/1.json`)
+//     이 코드의 return 값이 new Promise 이다.
 // }
-function fetchList(category) {
-    return axios.get(`${config.baseUrl}/${category}/1.json`)
+//promise Ver
+async function fetchList(category) {
+    try {
+        return await axios.get(`${config.baseUrl}/${category}/1.json`);
+    }
+    catch(error) {
+        console.log(error);
+    }
 }
-function fetchUserInfo(name) {
-    return axios.get(`https://hacker-news.firebaseio.com/v0/user/${name}.json`)
+async function fetchUserInfo(name) {
+    try {
+        const response = await axios.get(`https://hacker-news.firebaseio.com/v0/user/${name}.json`);
+        return response;
+    }
+    catch(error) {
+        console.log(error);
+    }
 }
 function fetchItem(postNum) {
-    return axios.get(`https://hacker-news.firebaseio.com/v0/item/${postNum}.json?print=pretty`)
+    return axios.get(`https://hacker-news.firebaseio.com/v0/item/${postNum}.json?print=pretty`);
 }
 
 
