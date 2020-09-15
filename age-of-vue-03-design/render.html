@@ -8,6 +8,7 @@
 	<body>
 		<div id="app">
 			<!--인스턴스 영역-->
+			<!-- #1 -->
 			<!-- <p>{{ message }}</p> -->
 		</div>
 
@@ -18,7 +19,11 @@
 				data: {
 					message: 'Hello Vue',
 				},
+
+				<!-- #2 -->
 				//template: '<p>{{message}}</p>',
+
+				<!-- #3 -->
 				render: function(createElemt) {
 					//return createElemt('태그이름', '태그 속성','하위태그 내용');
 					// return createElemt('p', 'Hello Vue');
