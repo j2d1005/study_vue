@@ -17,5 +17,11 @@ export default {
       required: true,
     },
   },
+    // 생략하고 위와 같이 바로 emit 방출할 수도 있다.!!
+    // methods: {
+    //   sendRenew() {
+    //       this.$emit('renew');
+    //   }
+    // }
 }
 </script>
