@@ -1,0 +1,7 @@
+# Netlify settings for single-page application
+/*  /index.html 200
+
+# 서버에서는 spa에서 설정한 라우터 ( /ask, /jobs, /news) 에 대해 알 길이 없다.
+# 설정한 라우터는 클라이언트(브라우저)에서만 가지고 있기 때문에 해당 url로 바로 접속하면 404뜸
+# 그래서 배포할 떄 각 서버에 맞게 셋팅을 해줘야 한다.
+# https://cli.vuejs.org/guide/deployment.html

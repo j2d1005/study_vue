@@ -20,11 +20,11 @@ export default {
     },
     methods: {
         loginUser() {
-            axios.get('http://jsonplaceholder.typicode.com/users/1')
+            axios.get('https://jsonplaceholder.typicode.com/users/1')
                 .then(response => {
                     if(response.data.id === 1) {
                         console.log('사용가자 인증 되었습니다.');
-                        axios.get('http://jsonplaceholder.typicode.com/todos')
+                        axios.get('https://jsonplaceholder.typicode.com/todos')
                             .then(response => {
                                 this.items = response.data;
                             })
@@ -39,10 +39,10 @@ export default {
             // then은 네트워크요청이나 비동기 요청에대해서만 처리를 함
             // try는 일반적인 자바스크립트의 오류도 처리할 수 있음
             try {
-                const response = await axios.get('http://jsonplaceholder.typicode.com/users/1');
+                const response = await axios.get('https://jsonplaceholder.typicode.com/users/1');
                 if (response.data.id ===1) {
                     console.log('사용가자 인증 되었습니다.');
-                    const list = await axios.get('http://jsonplaceholder.typicode.com/todos');
+                    const list = await axios.get('https://jsonplaceholder.typicode.com/todos');
                     this.items = list.data;
                 }
             } catch (error) {
