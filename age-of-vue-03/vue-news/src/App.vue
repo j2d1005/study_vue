@@ -35,6 +35,9 @@ export default {
         // Bus.$on('start:sppinner', () => this.loadingStatus = true);
         bus.$on('start:spinner', this.startSpinner);
         bus.$on('end:spinner', this.endSpinner);
+
+        // .env 테스트
+        console.log(process.env.VUE_APP_TITLE);
     },
     beforeDestroy() {
         // event등록하고 나면 이벤트 객체가 계속 쌓이기 때문에 이벤트 off를 꼭 해줘야 함
