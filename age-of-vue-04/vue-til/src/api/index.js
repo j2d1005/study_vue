@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const instance = axios.create({
-	baseURL: 'http://localhost:3000/',
+	// baseURL: 'http://localhost:3000/',
+	baseURL: process.env.VUE_APP_API_URL,
+	// .env에서 key값에 VUE_APP_ 을 붙이면 자동으로 로드가 되어서 쉽게 호출 가능하다.
 });
 
 function registerUser(userData) {
