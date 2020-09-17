@@ -1,15 +1,17 @@
 <template>
 	<div>
-		<header>
-			<router-link to="/login">login</router-link>
-			<router-link to="/signup">회원가입</router-link>
-		</header>
-		<router-view></router-view>
+		<AppHeader />
+		<router-view />
 	</div>
 </template>
 
 <script>
-export default {};
+import AppHeader from './components/common/AppHeader';
+export default {
+	components: {
+		AppHeader,
+	},
+};
 </script>
 
 <style scoped></style>

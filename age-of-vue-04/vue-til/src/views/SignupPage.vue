@@ -1,11 +1,16 @@
 <template>
 	<div>
-		Signup
+		<SignupForm />
 	</div>
 </template>
 
 <script>
-export default {};
+import SignupForm from '../components/SiginupForm';
+export default {
+	components: {
+		SignupForm,
+	},
+};
 </script>
 
 <style scoped></style>
