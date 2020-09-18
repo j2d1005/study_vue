@@ -6,14 +6,30 @@
 			</router-link>
 		</div>
 		<div class="navigations">
-			<router-link to="/login">로그인</router-link>
-			<router-link to="/signup">회원가입</router-link>
+			<!--     로그인상태       -->
+			<template v-if="isLogin">
+				<span class="username">{{ username }}</span>
+			</template>
+			<!--     로그인 x       -->
+			<template v-else>
+				<router-link to="/login">로그인</router-link>
+				<router-link to="/signup">회원가입</router-link>
+			</template>
 		</div>
 	</header>
 </template>
 
 <script>
-export default {};
+import { mapState, mapGetters } from 'vuex';
+export default {
+	computed: {
+		// isUserLogin() {
+		// 	return this.$store.getters.isLogin;
+		// },
+		...mapState(['username']),
+		...mapGetters(['isLogin']),
+	},
+};
 </script>
 
 <style scoped>
@@ -50,5 +66,8 @@ a.logo {
 a.router-link-exact-active {
 	color: white;
 	font-weight: bold;
+}
+.username {
+	color: white;
 }
 </style>
