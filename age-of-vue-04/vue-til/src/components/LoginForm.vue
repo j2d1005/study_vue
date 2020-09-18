@@ -18,7 +18,7 @@
 				<button
 					class="btn"
 					type="submit"
-					:disabled="!isUsernameVaild || !password"
+					:disabled="!isUsernameValid || !password"
 				>
 					login
 				</button>
@@ -43,7 +43,7 @@ export default {
 		};
 	},
 	computed: {
-		isUsernameVaild() {
+		isUsernameValid() {
 			return validateEmail(this.username);
 		},
 	},
@@ -56,7 +56,9 @@ export default {
 					password: this.password,
 				};
 				const { data } = await loginUser(userData);
-				this.logMessage = `${data.user.username} 님 환영합니다!`;
+				console.log(data.user.username);
+				this.$router.push('/main');
+				// this.logMessage = `${data.user.username} 님 환영합니다!`;
 				this.initform();
 			} catch (error) {
 				// 에러 핸들링 코드

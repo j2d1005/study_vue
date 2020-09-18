@@ -17,7 +17,7 @@
 				<button
 					type="submit"
 					class="btn"
-					:disabled="!isUsernameVaild || !password || !nickname"
+					:disabled="!isUsernameValid || !password || !nickname"
 				>
 					signup
 				</button>
@@ -42,7 +42,7 @@ export default {
 		};
 	},
 	computed: {
-		isUsernameVaild() {
+		isUsernameValid() {
 			return validateEmail(this.username);
 		},
 	},

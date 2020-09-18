@@ -28,6 +28,10 @@ export default new VueRouter({
 			component: () => import('../views/SignupPage'),
 		},
 		{
+			path: '/main',
+			component: () => import('../views/MainPage'),
+		},
+		{
 			// 위에 url을 제외한 모든 url에 대해 설정
 			path: '*',
 			component: () => import('../views/NotFoundPage'),
