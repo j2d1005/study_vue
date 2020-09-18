@@ -7,8 +7,9 @@ export function setInterceptors(instance) {
 	instance.interceptors.request.use(
 		function(config) {
 			// Do something before request is sent (보내기 전)
-			console.log(config);
-			config.headers.Autorization = store.state.token;
+			// console.log(config);
+			// console.log(store.state.token);
+			config.headers.Authorization = store.state.token;
 			return config;
 		},
 		function(error) {
