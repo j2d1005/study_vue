@@ -9,6 +9,7 @@
 			<!--     로그인상태       -->
 			<template v-if="isLogin">
 				<span class="username">{{ username }}</span>
+				<a href="javascript:;" @click="logoutUser">로그아웃</a>
 			</template>
 			<!--     로그인 x       -->
 			<template v-else>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState, mapGetters, mapMutations } from 'vuex';
 export default {
 	computed: {
 		// isUserLogin() {
@@ -28,6 +29,16 @@ export default {
 		// },
 		...mapState(['username']),
 		...mapGetters(['isLogin']),
+	},
+	methods: {
+		logoutUser() {
+			this.$store.commit('clearUsername');
+			this.$router.push('/');
+		},
+		// ...mapMutations(['clearUsername']),
+		// ...mapMutations({
+		// 	logoutUser: 'clearUsername',
+		// }),
 	},
 };
 </script>
