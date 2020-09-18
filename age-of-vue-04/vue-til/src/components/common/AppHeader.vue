@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 export default {
 	computed: {
 		// isUserLogin() {
@@ -37,10 +37,6 @@ export default {
 			this.$store.commit('clearUsername');
 			this.$router.push('/');
 		},
-		// ...mapMutations(['clearUsername']),
-		// ...mapMutations({
-		// 	logoutUser: 'clearUsername',
-		// }),
 	},
 };
 </script>
