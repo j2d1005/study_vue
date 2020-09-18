@@ -1,25 +1,30 @@
 <template>
-	<form @submit.prevent="submitForm">
-		<div>
-			<label for="username">id: </label>
-			<input id="username" type="text" v-model="username" />
+	<div class="contents">
+		<div class="form-wrapper form-wrapper-sm">
+			<form @submit.prevent="submitForm" class="form">
+				<div>
+					<label for="username">id: </label>
+					<input id="username" type="text" v-model="username" />
+				</div>
+				<div>
+					<label for="password">password: </label>
+					<input id="password" type="password" v-model="password" />
+				</div>
+				<div>
+					<label for="nickname">nickname: </label>
+					<input id="nickname" type="text" v-model="nickname" />
+				</div>
+				<button
+					type="submit"
+					class="btn"
+					:disabled="!isUsernameVaild || !password || !nickname"
+				>
+					signup
+				</button>
+				<p class="log">{{ logMessage }}</p>
+			</form>
 		</div>
-		<div>
-			<label for="password">password: </label>
-			<input id="password" type="password" v-model="password" />
-		</div>
-		<div>
-			<label for="nickname">nickname: </label>
-			<input id="nickname" type="text" v-model="nickname" />
-		</div>
-		<button
-			type="submit"
-			:disabled="!isUsernameVaild || !password || !nickname"
-		>
-			signup
-		</button>
-		<p>{{ logMessage }}</p>
-	</form>
+	</div>
 </template>
 
 <script>
@@ -64,4 +69,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn {
+	color: white;
+}
+.btn:disabled {
+	color: #dedede;
+}
+</style>

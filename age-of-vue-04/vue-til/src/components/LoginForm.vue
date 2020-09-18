@@ -1,18 +1,31 @@
 <template>
-	<form @submit.prevent="submitForm">
-		<div>
-			<label for="username">id: </label>
-			<input id="username" type="text" v-model="username" />
+	<div class="content">
+		<div class="form-wrapper form-wrapper-sm">
+			<form @submit.prevent="submitForm" class="form">
+				<div>
+					<label for="username">id: </label>
+					<input id="username" type="text" v-model="username" />
+					<p class="validation-text">
+						<span class="warning" v-if="!isUsernameValid && username">
+							Please enter an email address
+						</span>
+					</p>
+				</div>
+				<div>
+					<label for="password">password: </label>
+					<input id="password" type="password" v-model="password" />
+				</div>
+				<button
+					class="btn"
+					type="submit"
+					:disabled="!isUsernameVaild || !password"
+				>
+					login
+				</button>
+				<p>{{ logMessage }}</p>
+			</form>
 		</div>
-		<div>
-			<label for="password">password: </label>
-			<input id="password" type="password" v-model="password" />
-		</div>
-		<button type="submit" :disabled="!isUsernameVaild || !password">
-			login
-		</button>
-		<p>{{ logMessage }}</p>
-	</form>
+	</div>
 </template>
 
 <script>
@@ -59,4 +72,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn {
+	color: white;
+}
+.btn:disabled {
+	color: #dedede;
+}
+</style>
