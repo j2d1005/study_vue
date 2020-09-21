@@ -29,9 +29,8 @@
 </template>
 
 <script>
-import { loginUser } from '../api';
+import { mapActions } from 'vuex';
 import { validateEmail } from '../utils/validation';
-import { saveAuthToCookie, saveUserToCookie } from '../utils/cookies';
 
 export default {
 	data() {
@@ -56,15 +55,10 @@ export default {
 					username: this.username,
 					password: this.password,
 				};
-				const { data } = await loginUser(userData);
-				// console.log(data.token);
-				this.$store.commit('setToken', data.token);
-				this.$store.commit('setUsername', data.user.username);
-				// cookie 저장
-				saveAuthToCookie(data.token);
-				saveUserToCookie(data.user.username);
+				// const data = await this.$store.dispatch('LOGIN', userData); // actions 'LOGIN'에서 return값을 주면 이렇게 가져올 수 있음
+				// console.log(data);
+				await this.$store.dispatch('LOGIN', userData); // 이 로직이 끝나고 아래 함수가 실행되어야 하기 때문에 await
 				this.$router.push('/main');
-				// this.logMessage = `${data.user.username} 님 환영합니다!`;
 				this.initform();
 			} catch (error) {
 				// 에러 핸들링 코드
