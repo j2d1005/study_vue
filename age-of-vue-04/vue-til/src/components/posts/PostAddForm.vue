@@ -15,21 +15,40 @@
 				</div>
 				<button type="submit" class="btn">Create</button>
 			</form>
+			<p class="log">
+				{{ logMessage }}
+			</p>
 		</div>
 	</div>
 </template>
 
 <script>
+import { createPosts } from '../../api';
 export default {
 	data() {
 		return {
 			title: '',
 			contents: '',
+			logMessage: '',
 		};
 	},
 	methods: {
-		submitForm() {
-			console.log('asdf');
+		async submitForm() {
+			try {
+				// const postData = {
+				// 	title: this.title,
+				// 	contents: this.contents,
+				// };
+				// await createPosts(postData);
+				const response = await createPosts({
+					title: this.title,
+					contents: this.contents,
+				});
+				console.log(response);
+			} catch (error) {
+				console.log(error.response.data.message);
+				this.logMessage = error.response.data.message;
+			}
 		},
 	},
 };
