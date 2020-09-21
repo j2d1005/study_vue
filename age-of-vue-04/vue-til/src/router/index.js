@@ -36,6 +36,10 @@ export default new VueRouter({
 			component: () => import('../views/PostAddPage'),
 		},
 		{
+			path: '/post/:id',
+			component: () => import('../views/PostEditPage'),
+		},
+		{
 			// 위에 url을 제외한 모든 url에 대해 설정
 			path: '*',
 			component: () => import('../views/NotFoundPage'),
