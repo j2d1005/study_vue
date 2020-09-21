@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { fetchPost } from '../../api/posts';
+import { fetchPost, editPost } from '../../api/posts';
 
 export default {
 	data() {
@@ -48,7 +48,19 @@ export default {
 		},
 	},
 	methods: {
-		async submitForm() {},
+		async submitForm() {
+			const id = this.$route.params.id;
+			try {
+				await editPost(id, {
+					title: this.title,
+					contents: this.contents,
+				});
+				this.$router.push('/main');
+			} catch (error) {
+				console.log(error);
+				this.logMessage = error;
+			}
+		},
 	},
 	async created() {
 		const { data } = await fetchPost(this.$route.params.id);
