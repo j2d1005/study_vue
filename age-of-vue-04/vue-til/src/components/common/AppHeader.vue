@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<div>
-			<router-link to="/" class="logo">
+			<router-link :to="logoLink" class="logo">
 				TIL
 				<span v-if="isLogin">by {{ username }}</span>
 			</router-link>
@@ -31,6 +31,9 @@ export default {
 		// },
 		...mapState(['username']),
 		...mapGetters(['isLogin']),
+		logoLink() {
+			return this.$store.getters.isLogin ? '/main' : '/login';
+		},
 	},
 	methods: {
 		logoutUser() {
