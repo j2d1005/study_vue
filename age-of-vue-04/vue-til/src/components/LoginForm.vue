@@ -31,6 +31,7 @@
 <script>
 import { loginUser } from '../api';
 import { validateEmail } from '../utils/validation';
+import { saveAuthToCookie, saveUserToCookie } from '../utils/cookies';
 
 export default {
 	data() {
@@ -59,6 +60,9 @@ export default {
 				// console.log(data.token);
 				this.$store.commit('setToken', data.token);
 				this.$store.commit('setUsername', data.user.username);
+				// cookie 저장
+				saveAuthToCookie(data.token);
+				saveUserToCookie(data.user.username);
 				this.$router.push('/main');
 				// this.logMessage = `${data.user.username} 님 환영합니다!`;
 				this.initform();
