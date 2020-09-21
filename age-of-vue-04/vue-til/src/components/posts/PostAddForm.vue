@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { createPosts } from '../../api/posts';
+import { createPost } from '../../api/posts';
 export default {
 	data() {
 		return {
@@ -53,8 +53,8 @@ export default {
 				// 	title: this.title,
 				// 	contents: this.contents,
 				// };
-				// await createPosts(postData);
-				const response = await createPosts({
+				// await createPost(postData);
+				const response = await createPost({
 					title: this.title,
 					contents: this.contents,
 				});

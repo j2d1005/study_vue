@@ -10,9 +10,14 @@ function fetchPosts() {
 }
 
 // 학습 노트 데이터를 생성하는 API
-function createPosts(postData) {
+function createPost(postData) {
 	// return postsInstance.post('posts', postData);
 	return postsInstance.post('/', postData);
 }
 
-export { fetchPosts, createPosts };
+// 학습 노트 데이터를 삭제하는 API
+function deletePost(postId) {
+	return postsInstance.delete(postId);
+}
+
+export { fetchPosts, createPost, deletePost };
